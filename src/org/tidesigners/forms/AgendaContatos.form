@@ -160,6 +160,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTidActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTNome">
         </Component>
@@ -337,6 +340,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBSairActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

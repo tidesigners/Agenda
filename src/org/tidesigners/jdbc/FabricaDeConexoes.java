@@ -20,8 +20,8 @@ public class FabricaDeConexoes {
                 Class.forName("com.mysql.jdbc.Driver");
 
                 //Passo 2: configurar.
-                String url = "jdbc:mysql://localhost:3306/agendadb";
-                String usr = "root";
+                String url = "jdbc:mysql://localhost:8889/agendadb";
+                String usr = "dbuser";
                 String pwd = "xy453232";
 
                 //Passo 3: conectar.

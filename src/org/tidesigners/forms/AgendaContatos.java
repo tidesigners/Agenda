@@ -8,6 +8,8 @@ package org.tidesigners.forms;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -80,6 +82,11 @@ public class AgendaContatos extends javax.swing.JFrame {
 
         jTid.setBackground(javax.swing.UIManager.getDefaults().getColor("CheckBox.background"));
         jTid.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTidActionPerformed(evt);
+            }
+        });
 
         jLabelNome.setText("Nome:");
 
@@ -220,6 +227,11 @@ public class AgendaContatos extends javax.swing.JFrame {
         });
 
         jBSair.setText("Sair");
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -326,6 +338,7 @@ public class AgendaContatos extends javax.swing.JFrame {
         jTEmail.setText("");
         jTFone.setText("");
         jTSexo.setText("");
+        jTid.setText("");
 
     }//GEN-LAST:event_jBNovoActionPerformed
 
@@ -338,6 +351,12 @@ public class AgendaContatos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Problemas ao inserir contato" + ex);
             }
         }
+        try {
+            listarContatos();
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendaContatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
     }//GEN-LAST:event_jBSalvarActionPerformed
 
     private void jBPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisaActionPerformed
@@ -357,9 +376,26 @@ public class AgendaContatos extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Problemas ao excluir contato: " + ex);
         }
+        
+        try {
+            listarContatos();
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendaContatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
     }//GEN-LAST:event_jBExcluirActionPerformed
+
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+
+        System.exit(0);
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jBSairActionPerformed
+
+    private void jTidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTidActionPerformed
 
     public void excluirContato() throws SQLException {
         int resp = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir este contato?", "Confirmação", JOptionPane.YES_NO_OPTION);
